@@ -2,6 +2,17 @@ pipeline {
     agent any
 
     stages {
+
+
+        stage('Run only on main or feature branches'){
+            when{
+                anyOf {
+                    branch 'main'
+                    branch 'feature'
+                }
+            }
+        }
+        
         stage('Checkout the repository') {
             steps {
                 checkout scm
