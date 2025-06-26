@@ -11,8 +11,11 @@ pipeline {
                     branch 'feature'
                 }
             }
+            steps {
+                echo 'This will run only on main or feature/* branches'
+            }
         }
-        
+
         stage('Checkout the repository') {
             steps {
                 checkout scm
